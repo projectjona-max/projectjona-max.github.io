@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Japanese Writing & Translation Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --parchment: #f5f0e8;
+    --warm-white: #faf8f4;
+    --gold: #c9a84c;
+    --gold-light: #e8d49a;
+    --rust: #8b4513;
+    --muted: #7a6f62;
+    --border: rgba(201,168,76,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--warm-white);
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    overflow-x: hidden;
+  }
+
+  /* ── Noise texture overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── Decorative vertical line ── */
+  .side-line {
+    position: fixed;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+    opacity: 0.4;
+    z-index: 10;
+  }
+  .side-line-right {
+    left: auto;
+    right: 40px;
+  }
+
+  /* ── Navigation ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, var(--warm-white) 60%, transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 120px 80px 80px;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(120px, 20vw, 280px);
+    font-weight: 300;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201,168,76,0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1.2s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 560px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 36px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-101%);
+    transition: transform 0.4s ease;
+  }
+
+  .hero-cta:hover::before { transform: translateX(0); }
+  .hero-cta:hover { color: var(--warm-white); }
+  .hero-cta span { position: relative; z-index: 1; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── Section wrapper ── */
+  section {
+    padding: 100px 80px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .section-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    color: var(--gold-light);
+    line-height: 1;
+    font-weight: 300;
+    opacity: 0.6;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  /* ── About ── */
+  #about {
+    background: var(--parchment);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #about::after {
+    content: '言葉';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 14rem;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201,168,76,0.08);
+    pointer-events: none;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--muted);
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  .about-text p strong {
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .stat-card {
+    background: var(--warm-white);
+    padding: 32px 28px;
+    border-left: 3px solid var(--gold);
+    transition: transform 0.3s;
+  }
+
+  .stat-card:hover { transform: translateX(4px); }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-weight: 300;
+  }
+
+  .stat-label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Services ── */
+  #services {
+    background: var(--warm-white);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--parchment);
+    padding: 48px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s, background 0.4s;
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+    transform-origin: left;
+  }
+
+  .service-card:hover { background: var(--ink); transform: translateY(-4px); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover .service-icon,
+  .service-card:hover .service-title,
+  .service-card:hover .service-desc,
+  .service-card:hover .service-tag { color: var(--parchment); }
+  .service-card:hover .service-icon { opacity: 0.4; }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    display: block;
+    transition: color 0.4s, opacity 0.4s;
+  }
+
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: var(--ink);
+    transition: color 0.4s;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-weight: 300;
+    transition: color 0.4s;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .service-tag {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    text-transform: uppercase;
+    transition: color 0.4s;
+  }
+
+  /* ── Works ── */
+  #works {
+    background: var(--ink);
+    color: var(--parchment);
+  }
+
+  #works .section-title { color: var(--parchment); }
+  #works .section-number { color: rgba(201,168,76,0.2); }
+
+  .works-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    gap: 40px;
+    padding: 32px 40px;
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid transparent;
+    transition: all 0.4s;
+    cursor: default;
+  }
+
+  .work-item:hover {
+    background: rgba(201,168,76,0.08);
+    border-left-color: var(--gold);
+    transform: translateX(8px);
+  }
+
+  .work-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    opacity: 0.7;
+    letter-spacing: 0.1em;
+  }
+
+  .work-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: var(--parchment);
+  }
+
+  .work-info p {
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.5);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .work-type {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 6px 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ── Skills ── */
+  #skills {
+    background: var(--parchment);
+  }
+
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .skills-intro p {
+    font-size: 0.95rem;
+    line-height: 2;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .skills-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .skill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .skill-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .skill-name {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+  }
+
+  .skill-pct {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  .skill-track {
+    height: 3px;
+    background: rgba(201,168,76,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(to right, var(--gold), var(--rust));
+    transform-origin: left;
+    animation: fillBar 1.5s ease forwards;
+    transform: scaleX(0);
+  }
+
+  @keyframes fillBar {
+    to { transform: scaleX(1); }
+  }
+
+  /* ── Contact ── */
+  #contact {
+    background: var(--warm-white);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .contact-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  .contact-headline em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .contact-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 40px;
+    background: var(--ink);
+    color: var(--parchment);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s;
+    border: 1px solid var(--ink);
+  }
+
+  .contact-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+  }
+
+  .contact-btn.outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+  }
+
+  .contact-btn.outline:hover {
+    background: var(--ink);
+    color: var(--parchment);
+  }
+
+  /* ── Communication Policy Banner ── */
+  .comm-policy {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 28px 36px;
+    margin-bottom: 56px;
+    border-left: 4px solid var(--gold);
+    position: relative;
+    z-index: 1;
+  }
+
+  .comm-policy-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .comm-policy-body h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .comm-policy-body p {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.75);
+    font-weight: 300;
+  }
+
+  .comm-policy-body strong { color: var(--parchment); font-weight: 400; }
+
+  /* ── Contact Policy Tags ── */
+  .contact-policy {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding: 20px 32px;
+    border: 1px solid var(--border);
+    background: var(--parchment);
+  }
+
+  .cp-tag {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+  }
+
+  .cp-sep { color: var(--gold); opacity: 0.5; }
+
+  /* ── Divider ── */
+  .ornament {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    opacity: 0.4;
+    letter-spacing: 0.5em;
+    margin: 16px 0;
+  }
+
+  /* ── Footer ── */
+  footer {
+    padding: 32px 80px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    nav, section, footer { padding-left: 32px; padding-right: 32px; }
+    .side-line, .side-line-right { display: none; }
+    .about-grid, .skills-layout { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .work-item { grid-template-columns: 60px 1fr; }
+    .work-type { display: none; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="side-line"></div>
+<div class="side-line side-line-right"></div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-logo">Writing & Translation</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-text">言葉</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Japanese Native · Writer · Translator · Text-Based Communication</div>
+    <h1 class="hero-name">Words that <em>connect</em><br>cultures &amp; hearts</h1>
+    <p class="hero-tagline">
+      日本語ネイティブによる高精度ライティング・翻訳・コンテンツ制作。<br>
+      15年以上の言語の専門知識で、あなたのメッセージを最高の言葉に変えます。
+    </p>
+    <a href="#contact" class="hero-cta"><span>お仕事のご依頼はこちら</span></a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-number">01</span>
+    <h2 class="section-title">About <em>Me</em></h2>
+  </div>
+  <div class="comm-policy reveal">
+    <div class="comm-policy-icon">💬</div>
+    <div class="comm-policy-body">
+      <h4>Communication Policy</h4>
+      <p>I communicate exclusively via <strong>text (chat &amp; email)</strong> to ensure accurate, thoughtful, and high-quality responses. Voice/video calls are not available. All questions and feedback are welcome in writing — I respond carefully and promptly.</p>
+      <p style="margin-top:8px;font-size:0.78rem;color:var(--gold)">📍 Based in Japan (JST) · Typical response within 24 hours</p>
+    </div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>日本語ネイティブとして日本在住。<strong>情報誌の校正・校閲業務を15年以上</strong>にわたり担当し、言語の正確さと表現の豊かさを徹底的に磨いてきました。</p>
+      <p>Kindle小説の<strong>出版実績2冊</strong>を持ち、ストーリーテリングと感情の言語化にも長けています。AIと人間の関わりをテーマにした作品は、時代の変化に鋭く向き合うものです。</p>
+      <p>MLMでの<strong>15年以上のディストリビューターサポート経験</strong>を通じ、プレゼンテーション資料作成や分かりやすいビジネスコミュニケーションにも精通しています。</p>
+      <p>マネタイズ済みの<strong>アフィリエイトブログ運営</strong>や人事総務の経験により、SEOに強いWebコンテンツからビジネス文書まで幅広く対応可能です。</p>
+    </div>
+    <div class="stats-grid reveal">
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">年の校正・校閲経験</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2冊</div>
+        <div class="stat-label">Kindle小説出版</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">年のビジネスサポート</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Native</div>
+        <div class="stat-label">日本語ネイティブ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Services <em>Offered</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-icon">✍️</span>
+      <h3 class="service-title">日本語ライティング・コンテンツ制作</h3>
+      <p class="service-desc">ブログ記事、Web コンテンツ、ビジネス文書、商品説明など。SEO を意識した読みやすい文章から、感情に訴えるコピーまで幅広く対応します。</p>
+      <div class="service-tags">
+        <span class="service-tag">Blog</span>
+        <span class="service-tag">SEO</span>
+        <span class="service-tag">Copywriting</span>
+        <span class="service-tag">WordPress</span>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🔍</span>
+      <h3 class="service-title">校正・校閲・プルーフリーディング</h3>
+      <p class="service-desc">情報誌15年超の実務経験に基づく、高精度な日本語校正・校閲サービス。誤字脱字の修正から文体統一、事実確認まで丁寧に対応します。</p>
+      <div class="service-tags">
+        <span class="service-tag">Proofreading</span>
+        <span class="service-tag">Editing</span>
+        <span class="service-tag">Japanese</span>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🌐</span>
+      <h3 class="service-title">翻訳（英日・日英）</h3>
+      <p class="service-desc">人事総務のビジネス経験を活かしたビジネス翻訳、ウェブコンテンツの翻訳・ローカライズ対応。自然な日本語表現にこだわります。</p>
+      <div class="service-tags">
+        <span class="service-tag">EN→JP</span>
+        <span class="service-tag">JP→EN</span>
+        <span class="service-tag">Business</span>
+        <span class="service-tag">Localization</span>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">📖</span>
+      <h3 class="service-title">小説・クリエイティブライティング</h3>
+      <p class="service-desc">Kindle 出版2冊のノウハウを活かしたフィクション・ノンフィクション執筆。AIと人間の感情、家族・人間関係を題材としたストーリー制作を得意とします。</p>
+      <div class="service-tags">
+        <span class="service-tag">Fiction</span>
+        <span class="service-tag">Kindle</span>
+        <span class="service-tag">Storytelling</span>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">📊</span>
+      <h3 class="service-title">プレゼンテーション資料作成</h3>
+      <p class="service-desc">製品プレゼンや営業資料の豊富な作成経験。伝わるデザインと論理構成で、あなたのビジネスを説得力ある形で表現します。</p>
+      <div class="service-tags">
+        <span class="service-tag">PowerPoint</span>
+        <span class="service-tag">Business Docs</span>
+        <span class="service-tag">Pitch</span>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">💻</span>
+      <h3 class="service-title">WordPress ブログ制作・運営</h3>
+      <p class="service-desc">マネタイズ済みアフィリエイトブログの運営経験あり。記事制作から WordPress サイト構築・更新管理まで対応。収益化を見据えた実践的なコンテンツ戦略が強みです。</p>
+      <div class="service-tags">
+        <span class="service-tag">WordPress</span>
+        <span class="service-tag">Affiliate</span>
+        <span class="service-tag">Monetization</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Works -->
+<section id="works">
+  <div class="section-header reveal">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Selected <em>Works</em></h2>
+  </div>
+  <div class="works-list">
+    <div class="work-item reveal">
+      <div class="work-year">Kindle</div>
+      <div class="work-info">
+        <h3>AI再生の物語 ―リストラから自分らしさへ―</h3>
+        <p>リストラによって苦境に立たされた主人公が、AIとの対話を通じて本当の自分を取り戻すまでを描いた日本語小説。Kindleにて出版。</p>
+      </div>
+      <div class="work-type">Japanese Novel</div>
+    </div>
+    <div class="work-item reveal">
+      <div class="work-year">Kindle</div>
+      <div class="work-info">
+        <h3>家族再生 ―AIが紡ぐ絆―</h3>
+        <p>家庭崩壊の危機に瀕した家族が、AIの存在によって関係を再生していく感動の物語。Kindleにて出版。</p>
+      </div>
+      <div class="work-type">Japanese Novel</div>
+    </div>
+    <div class="work-item reveal">
+      <div class="work-year">15年+</div>
+      <div class="work-info">
+        <h3>情報誌 校正・校閲業務</h3>
+        <p>15年以上にわたる情報誌の校正・校閲担当。誤字脱字・表記統一・事実確認など高精度な日本語品質管理を継続。</p>
+      </div>
+      <div class="work-type">Proofreading</div>
+    </div>
+    <div class="work-item reveal">
+      <div class="work-year">運営中</div>
+      <div class="work-info">
+        <h3>マネタイズ済みアフィリエイトブログ</h3>
+        <p>WordPress を使用したアフィリエイトブログを運営。SEO 対策・収益化戦略を実践し、継続的な収益を上げている。</p>
+      </div>
+      <div class="work-type">WordPress / SEO</div>
+    </div>
+    <div class="work-item reveal">
+      <div class="work-year">15年+</div>
+      <div class="work-info">
+        <h3>製品プレゼンテーション資料制作</h3>
+        <p>MLM 企業でのディストリビューターサポート業務を通じ、多数の製品プレゼン資料を企画・制作。分かりやすさと説得力を両立。</p>
+      </div>
+      <div class="work-type">Presentation</div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Core <em>Skills</em></h2>
+  </div>
+  <div class="skills-layout">
+    <div class="skills-intro reveal">
+      <p>日本語の精度と表現力を核に、ライティング・翻訳・編集・コンテンツ制作まで幅広いスキルを備えています。長年の実務経験が、すべての仕事の品質を支えています。</p>
+    </div>
+    <div class="skills-bars reveal">
+      <div class="skill-row">
+        <div class="skill-meta">
+          <span class="skill-name">日本語ライティング・校正</span>
+          <span class="skill-pct">98%</span>
+        </div>
+        <div class="skill-track"><div class="skill-fill" style="width:98%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-meta">
+          <span class="skill-name">校閲・プルーフリーディング</span>
+          <span class="skill-pct">97%</span>
+        </div>
+        <div class="skill-track"><div class="skill-fill" style="width:97%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-meta">
+          <span class="skill-name">英日・日英 翻訳</span>
+          <span class="skill-pct">85%</span>
+        </div>
+        <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-meta">
+          <span class="skill-name">WordPress / ブログ運営</span>
+          <span class="skill-pct">80%</span>
+        </div>
+        <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-meta">
+          <span class="skill-name">プレゼンテーション資料作成</span>
+          <span class="skill-pct">88%</span>
+        </div>
+        <div class="skill-track"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-meta">
+          <span class="skill-name">ビジネスコンテンツ制作</span>
+          <span class="skill-pct">90%</span>
+        </div>
+        <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-meta">
+          <span class="skill-name">クリエイティブライティング（小説）</span>
+          <span class="skill-pct">92%</span>
+        </div>
+        <div class="skill-track"><div class="skill-fill" style="width:92%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="ornament reveal">❧ ✦ ❧</div>
+    <h2 class="contact-headline reveal">Let's create something<br><em>extraordinary</em> together</h2>
+    <p class="contact-sub reveal">
+      日本語ライティング・翻訳・校正・コンテンツ制作のご依頼、<br>
+      お気軽にご相談ください。スピーディーに対応いたします。
+    </p>
+    <div class="contact-policy reveal">
+      <span class="cp-tag">💬 Text only</span>
+      <span class="cp-sep">·</span>
+      <span class="cp-tag">📧 Chat &amp; Email</span>
+      <span class="cp-sep">·</span>
+      <span class="cp-tag">⏱ Reply within 24h</span>
+      <span class="cp-sep">·</span>
+      <span class="cp-tag">🚫 No video/voice calls</span>
+    </div>
+    <div class="contact-links reveal">
+      <a href="https://www.upwork.com" target="_blank" class="contact-btn"><span>Upwork でご依頼</span></a>
+      <a href="mailto:your@email.com" class="contact-btn outline"><span>メールで問い合わせ</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Japanese Writing & Translation Specialist. All rights reserved.</p>
+  <p>Available on Upwork · Japan-based · Japanese Native</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
