@@ -644,6 +644,111 @@
     color: var(--parchment);
   }
 
+  /* ── Kindle Book Cards ── */
+  .kindle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .kindle-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 36px 32px;
+    position: relative;
+    transition: border-color 0.4s, background 0.4s;
+  }
+
+  .kindle-card:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.06);
+  }
+
+  .kindle-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    font-weight: 400;
+  }
+
+  .kindle-header {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .kindle-icon { font-size: 2rem; flex-shrink: 0; margin-top: 2px; }
+
+  .kindle-label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    opacity: 0.8;
+    margin-bottom: 6px;
+  }
+
+  .kindle-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--parchment);
+    line-height: 1.2;
+  }
+
+  .kindle-desc {
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.65);
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .kindle-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+
+  .kindle-tag {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 4px 10px;
+  }
+
+  .kindle-btn {
+    display: inline-block;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,168,76,0.4);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .kindle-btn:hover {
+    color: var(--parchment);
+    border-color: var(--parchment);
+  }
+
+  @media (max-width: 900px) {
+    .kindle-grid { grid-template-columns: 1fr; }
+  }
+
   /* ── Communication Policy Banner ── */
   .comm-policy {
     display: flex;
@@ -777,7 +882,7 @@
 <section class="hero">
   <div class="hero-bg-text">言葉</div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Japanese Native · Writer · Translator · Text-Based Communication</div>
+    <div class="hero-eyebrow">Japan-based · Japanese Native · Writer · Translator · Text-Based Communication</div>
     <h1 class="hero-name">Words that <em>connect</em><br>cultures &amp; hearts</h1>
     <p class="hero-tagline">
       日本語ネイティブによる高精度ライティング・翻訳・コンテンツ制作。<br>
@@ -804,8 +909,9 @@
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>日本語ネイティブとして日本在住。<strong>情報誌の校正・校閲業務を15年以上</strong>にわたり担当し、言語の正確さと表現の豊かさを徹底的に磨いてきました。</p>
-      <p>Kindle小説の<strong>出版実績2冊</strong>を持ち、ストーリーテリングと感情の言語化にも長けています。AIと人間の関わりをテーマにした作品は、時代の変化に鋭く向き合うものです。</p>
+      <p>日本在住の日本語ネイティブとして、<strong>日本市場・日本文化への深い理解</strong>を強みにしています。日本語特有のニュアンスや敬語表現、商慣習に精通しているため、海外クライアントの日本向けコンテンツ制作に特に強みを発揮します。</p>
+      <p>情報誌の<strong>校正・校閲業務を15年以上</strong>にわたり担当し、言語の正確さと表現の豊かさを徹底的に磨いてきました。</p>
+      <p>Kindle小説を<strong>2冊出版</strong>（『父のアルゴリズム』『五十代崖っぷち主任』）。AIと人間の感情・家族・人生再起動をテーマに、フィクションと実用を融合させた作品を手がけています。</p>
       <p>MLMでの<strong>15年以上のディストリビューターサポート経験</strong>を通じ、プレゼンテーション資料作成や分かりやすいビジネスコミュニケーションにも精通しています。</p>
       <p>マネタイズ済みの<strong>アフィリエイトブログ運営</strong>や人事総務の経験により、SEOに強いWebコンテンツからビジネス文書まで幅広く対応可能です。</p>
     </div>
@@ -840,11 +946,12 @@
     <div class="service-card reveal">
       <span class="service-icon">✍️</span>
       <h3 class="service-title">日本語ライティング・コンテンツ制作</h3>
-      <p class="service-desc">ブログ記事、Web コンテンツ、ビジネス文書、商品説明など。SEO を意識した読みやすい文章から、感情に訴えるコピーまで幅広く対応します。</p>
+      <p class="service-desc">ブログ記事、Web コンテンツ、ビジネス文書、商品説明など。SEO・LLMO・AIO を意識した構成設計から、E-E-A-T の観点を踏まえた信頼性の高いコンテンツ制作まで幅広く対応します。</p>
       <div class="service-tags">
-        <span class="service-tag">Blog</span>
         <span class="service-tag">SEO</span>
-        <span class="service-tag">Copywriting</span>
+        <span class="service-tag">LLMO</span>
+        <span class="service-tag">AIO</span>
+        <span class="service-tag">E-E-A-T</span>
         <span class="service-tag">WordPress</span>
       </div>
     </div>
@@ -861,7 +968,7 @@
     <div class="service-card reveal">
       <span class="service-icon">🌐</span>
       <h3 class="service-title">翻訳（英日・日英）</h3>
-      <p class="service-desc">人事総務のビジネス経験を活かしたビジネス翻訳、ウェブコンテンツの翻訳・ローカライズ対応。自然な日本語表現にこだわります。</p>
+      <p class="service-desc">ビジネス実務経験を活かした、自然で正確なビジネス翻訳。ウェブコンテンツの翻訳・ローカライズ対応。自然な日本語表現にこだわります。</p>
       <div class="service-tags">
         <span class="service-tag">EN→JP</span>
         <span class="service-tag">JP→EN</span>
@@ -871,12 +978,14 @@
     </div>
     <div class="service-card reveal">
       <span class="service-icon">📖</span>
-      <h3 class="service-title">小説・クリエイティブライティング</h3>
-      <p class="service-desc">Kindle 出版2冊のノウハウを活かしたフィクション・ノンフィクション執筆。AIと人間の感情、家族・人間関係を題材としたストーリー制作を得意とします。</p>
+      <h3 class="service-title">ストーリーテリング × Webマーケティング</h3>
+      <p class="service-desc">Kindle小説2冊の執筆経験で培ったストーリーテリング技術を、Webマーケティングに応用。読者を主人公にした共感型コンテンツ、ブランドの世界観を伝えるナラティブ記事、思わず読み進めてしまうLP文章など、「売り込まずに惹きつける」コンテンツ制作を得意とします。</p>
       <div class="service-tags">
-        <span class="service-tag">Fiction</span>
-        <span class="service-tag">Kindle</span>
         <span class="service-tag">Storytelling</span>
+        <span class="service-tag">Narrative Marketing</span>
+        <span class="service-tag">LP Copywriting</span>
+        <span class="service-tag">Brand Story</span>
+        <span class="service-tag">Content Marketing</span>
       </div>
     </div>
     <div class="service-card reveal">
@@ -908,23 +1017,46 @@
     <span class="section-number">03</span>
     <h2 class="section-title">Selected <em>Works</em></h2>
   </div>
-  <div class="works-list">
-    <div class="work-item reveal">
-      <div class="work-year">Kindle</div>
-      <div class="work-info">
-        <h3>AI再生の物語 ―リストラから自分らしさへ―</h3>
-        <p>リストラによって苦境に立たされた主人公が、AIとの対話を通じて本当の自分を取り戻すまでを描いた日本語小説。Kindleにて出版。</p>
+  <!-- Kindle Books -->
+  <div class="kindle-grid reveal">
+    <div class="kindle-card">
+      <div class="kindle-badge">New Release</div>
+      <div class="kindle-header">
+        <span class="kindle-icon">📖</span>
+        <div>
+          <div class="kindle-label">Kindle 小説 · 著者：嘉藤大之</div>
+          <h3 class="kindle-title">父のアルゴリズム：AIで百人の仕事を奪った男が、息子に贈ったもの</h3>
+        </div>
       </div>
-      <div class="work-type">Japanese Novel</div>
-    </div>
-    <div class="work-item reveal">
-      <div class="work-year">Kindle</div>
-      <div class="work-info">
-        <h3>家族再生 ―AIが紡ぐ絆―</h3>
-        <p>家庭崩壊の危機に瀕した家族が、AIの存在によって関係を再生していく感動の物語。Kindleにて出版。</p>
+      <p class="kindle-desc">AIで百人以上の雇用削減に関わった42歳のAI推進担当・田中誠二が、皮肉にも自らのポジションをAIに奪われ失職。二年間不登校の息子・翔太、距離が生まれた妻・久美子。不器用な父が、人を傷つけた道具と同じAIを使って息子のための学習システムを設計し始める。マインクラフトと算数、霧の王様の物語と国語——家族の気持ちを取り戻すための、静かで不器用な再出発の物語。Kindle Unlimited対応。「父のアルゴリズム」シリーズ第1巻・続編刊行予定。</p>
+      <div class="kindle-tags">
+        <span class="kindle-tag">AI × 家族</span>
+        <span class="kindle-tag">感動小説</span>
+        <span class="kindle-tag">Kindle Unlimited</span>
       </div>
-      <div class="work-type">Japanese Novel</div>
+      <a href="https://www.amazon.co.jp/dp/B0GX31SS56" target="_blank" class="kindle-btn">Amazon で見る →</a>
     </div>
+    <div class="kindle-card">
+      <div class="kindle-badge" style="background:var(--rust)">第一弾</div>
+      <div class="kindle-header">
+        <span class="kindle-icon">📗</span>
+        <div>
+          <div class="kindle-label">Kindle 小説 · 著者：嘉藤大之</div>
+          <h3 class="kindle-title">五十代崖っぷち主任がChatGPTで再起動する物語</h3>
+        </div>
+      </div>
+      <p class="kindle-desc">59歳、うつ病による休職を経て総務部へ「左遷」された神谷優志。HSP・ADHD気質を抱え「僕なんかが…」が口癖の彼が、部下の雑談で知ったChatGPTに藁にもすがる思いで話しかける。AIとの対話から生まれた『ノビシロノート』を武器に、止まっていた時間が動き出す。冷え切った夫婦関係、職場のチームさえも変えていく——中高年のための、涙と共感と実践の人生再起動物語。Kindle Unlimited対応。</p>
+      <div class="kindle-tags">
+        <span class="kindle-tag">AI × 中高年</span>
+        <span class="kindle-tag">人生再起動</span>
+        <span class="kindle-tag">実用小説</span>
+      </div>
+      <a href="https://www.amazon.co.jp/dp/B0FCVQJ678" target="_blank" class="kindle-btn">Amazon で見る →</a>
+    </div>
+  </div>
+
+  <!-- Other Works -->
+  <div class="works-list" style="margin-top:4px">
     <div class="work-item reveal">
       <div class="work-year">15年+</div>
       <div class="work-info">
@@ -1036,14 +1168,14 @@
     </div>
     <div class="contact-links reveal">
       <a href="https://www.upwork.com" target="_blank" class="contact-btn"><span>Upwork でご依頼</span></a>
-      <a href="mailto:your@email.com" class="contact-btn outline"><span>メールで問い合わせ</span></a>
+      <span class="contact-btn outline" style="cursor:default;">📋 Contact via Upwork only</span>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>© 2025 Japanese Writing & Translation Specialist. All rights reserved.</p>
+  <p>© 2026 Hiroyuki Kato. All rights reserved.</p>
   <p>Available on Upwork · Japan-based · Japanese Native</p>
 </footer>
 
