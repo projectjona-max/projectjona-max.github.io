@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | Japanese Writing & Translation Specialist</title>
+<title>Portfolio | Hiroyuki Kato — Japanese Writer & Translator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -19,17 +19,15 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
     background-color: var(--warm-white);
     color: var(--ink);
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'Cormorant Garamond', serif;
     overflow-x: hidden;
   }
 
-  /* ── Noise texture overlay ── */
   body::before {
     content: '';
     position: fixed;
@@ -40,7 +38,6 @@
     opacity: 0.4;
   }
 
-  /* ── Decorative vertical line ── */
   .side-line {
     position: fixed;
     left: 40px;
@@ -51,17 +48,11 @@
     opacity: 0.4;
     z-index: 10;
   }
-  .side-line-right {
-    left: auto;
-    right: 40px;
-  }
+  .side-line-right { left: auto; right: 40px; }
 
-  /* ── Navigation ── */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
     padding: 20px 80px;
     display: flex;
@@ -78,12 +69,7 @@
     text-transform: uppercase;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.72rem;
@@ -93,10 +79,8 @@
     text-transform: uppercase;
     transition: color 0.3s;
   }
-
   .nav-links a:hover { color: var(--gold); }
 
-  /* ── Hero ── */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -131,9 +115,7 @@
     transform: translateY(30px);
   }
 
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
   .hero-eyebrow {
     font-family: 'Noto Sans JP', sans-serif;
@@ -147,9 +129,7 @@
     justify-content: center;
     gap: 16px;
   }
-
-  .hero-eyebrow::before,
-  .hero-eyebrow::after {
+  .hero-eyebrow::before, .hero-eyebrow::after {
     content: '';
     width: 40px;
     height: 1px;
@@ -166,17 +146,13 @@
     margin-bottom: 16px;
     color: var(--ink);
   }
-
-  .hero-name em {
-    font-style: italic;
-    color: var(--rust);
-  }
+  .hero-name em { font-style: italic; color: var(--rust); }
 
   .hero-tagline {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--muted);
     line-height: 1.8;
-    max-width: 560px;
+    max-width: 600px;
     margin: 0 auto 48px;
     font-weight: 300;
   }
@@ -197,7 +173,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .hero-cta::before {
     content: '';
     position: absolute;
@@ -206,7 +181,6 @@
     transform: translateX(-101%);
     transition: transform 0.4s ease;
   }
-
   .hero-cta:hover::before { transform: translateX(0); }
   .hero-cta:hover { color: var(--warm-white); }
   .hero-cta span { position: relative; z-index: 1; }
@@ -227,23 +201,18 @@
     text-transform: uppercase;
     animation: bounce 2s ease-in-out infinite;
   }
-
   .hero-scroll::after {
     content: '';
     width: 1px;
     height: 40px;
     background: linear-gradient(to bottom, var(--gold), transparent);
   }
-
   @keyframes bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(6px); }
   }
 
-  /* ── Section wrapper ── */
-  section {
-    padding: 100px 80px;
-  }
+  section { padding: 100px 80px; }
 
   .section-header {
     display: flex;
@@ -251,7 +220,6 @@
     gap: 24px;
     margin-bottom: 64px;
   }
-
   .section-number {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
@@ -260,7 +228,6 @@
     font-weight: 300;
     opacity: 0.6;
   }
-
   .section-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.4rem;
@@ -268,19 +235,10 @@
     letter-spacing: 0.02em;
     color: var(--ink);
   }
+  .section-title em { font-style: italic; color: var(--rust); }
 
-  .section-title em {
-    font-style: italic;
-    color: var(--rust);
-  }
-
-  /* ── About ── */
-  #about {
-    background: var(--parchment);
-    position: relative;
-    overflow: hidden;
-  }
-
+  /* About */
+  #about { background: var(--parchment); position: relative; overflow: hidden; }
   #about::after {
     content: '言葉';
     position: absolute;
@@ -304,35 +262,23 @@
     position: relative;
     z-index: 1;
   }
-
   .about-text p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 2;
     color: var(--muted);
     margin-bottom: 20px;
     font-weight: 300;
   }
+  .about-text p strong { color: var(--ink); font-weight: 400; }
 
-  .about-text p strong {
-    color: var(--ink);
-    font-weight: 400;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
   .stat-card {
     background: var(--warm-white);
     padding: 32px 28px;
     border-left: 3px solid var(--gold);
     transition: transform 0.3s;
   }
-
   .stat-card:hover { transform: translateX(4px); }
-
   .stat-number {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.8rem;
@@ -341,7 +287,6 @@
     margin-bottom: 8px;
     font-weight: 300;
   }
-
   .stat-label {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.72rem;
@@ -349,17 +294,9 @@
     letter-spacing: 0.1em;
   }
 
-  /* ── Services ── */
-  #services {
-    background: var(--warm-white);
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-
+  /* Services */
+  #services { background: var(--warm-white); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
   .service-card {
     background: var(--parchment);
     padding: 48px 36px;
@@ -368,20 +305,16 @@
     transition: transform 0.4s, background 0.4s;
     cursor: default;
   }
-
   .service-card::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
     height: 3px;
     background: var(--gold);
     transform: scaleX(0);
     transition: transform 0.4s;
     transform-origin: left;
   }
-
   .service-card:hover { background: var(--ink); transform: translateY(-4px); }
   .service-card:hover::before { transform: scaleX(1); }
   .service-card:hover .service-icon,
@@ -390,13 +323,7 @@
   .service-card:hover .service-tag { color: var(--parchment); }
   .service-card:hover .service-icon { opacity: 0.4; }
 
-  .service-icon {
-    font-size: 2rem;
-    margin-bottom: 24px;
-    display: block;
-    transition: color 0.4s, opacity 0.4s;
-  }
-
+  .service-icon { font-size: 2rem; margin-bottom: 24px; display: block; transition: color 0.4s, opacity 0.4s; }
   .service-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
@@ -406,22 +333,15 @@
     transition: color 0.4s;
     line-height: 1.3;
   }
-
   .service-desc {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     line-height: 1.9;
     color: var(--muted);
     margin-bottom: 24px;
     font-weight: 300;
     transition: color 0.4s;
   }
-
-  .service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
+  .service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .service-tag {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.62rem;
@@ -433,24 +353,15 @@
     transition: color 0.4s;
   }
 
-  /* ── Works ── */
-  #works {
-    background: var(--ink);
-    color: var(--parchment);
-  }
-
+  /* Works */
+  #works { background: var(--ink); color: var(--parchment); }
   #works .section-title { color: var(--parchment); }
   #works .section-number { color: rgba(201,168,76,0.2); }
 
-  .works-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
+  .works-list { display: flex; flex-direction: column; gap: 2px; }
   .work-item {
     display: grid;
-    grid-template-columns: 80px 1fr auto;
+    grid-template-columns: 100px 1fr auto;
     align-items: center;
     gap: 40px;
     padding: 32px 40px;
@@ -459,13 +370,11 @@
     transition: all 0.4s;
     cursor: default;
   }
-
   .work-item:hover {
     background: rgba(201,168,76,0.08);
     border-left-color: var(--gold);
     transform: translateX(8px);
   }
-
   .work-year {
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.9rem;
@@ -473,7 +382,6 @@
     opacity: 0.7;
     letter-spacing: 0.1em;
   }
-
   .work-info h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
@@ -481,14 +389,12 @@
     margin-bottom: 6px;
     color: var(--parchment);
   }
-
   .work-info p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: rgba(245,240,232,0.5);
     font-weight: 300;
     line-height: 1.6;
   }
-
   .work-type {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.65rem;
@@ -500,89 +406,44 @@
     white-space: nowrap;
   }
 
-  /* ── Skills ── */
-  #skills {
-    background: var(--parchment);
-  }
-
-  .skills-layout {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .skills-intro p {
-    font-size: 0.95rem;
-    line-height: 2;
-    color: var(--muted);
-    font-weight: 300;
-  }
-
-  .skills-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .skill-row {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .skill-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
+  /* Skills */
+  #skills { background: var(--parchment); }
+  .skills-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+  .skills-intro p { font-size: 1.05rem; line-height: 2; color: var(--muted); font-weight: 300; }
+  .skills-bars { display: flex; flex-direction: column; gap: 28px; }
+  .skill-row { display: flex; flex-direction: column; gap: 8px; }
+  .skill-meta { display: flex; justify-content: space-between; align-items: baseline; }
   .skill-name {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     color: var(--ink);
   }
-
   .skill-pct {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     color: var(--gold);
   }
-
   .skill-track {
     height: 3px;
     background: rgba(201,168,76,0.15);
     position: relative;
     overflow: hidden;
   }
-
   .skill-fill {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 0; top: 0;
     height: 100%;
     background: linear-gradient(to right, var(--gold), var(--rust));
     transform-origin: left;
     animation: fillBar 1.5s ease forwards;
     transform: scaleX(0);
   }
+  @keyframes fillBar { to { transform: scaleX(1); } }
 
-  @keyframes fillBar {
-    to { transform: scaleX(1); }
-  }
-
-  /* ── Contact ── */
-  #contact {
-    background: var(--warm-white);
-    text-align: center;
-  }
-
-  .contact-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
+  /* Contact */
+  #contact { background: var(--warm-white); text-align: center; }
+  .contact-inner { max-width: 680px; margin: 0 auto; }
   .contact-headline {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2rem, 4vw, 3.5rem);
@@ -590,27 +451,15 @@
     margin-bottom: 24px;
     line-height: 1.2;
   }
-
-  .contact-headline em {
-    font-style: italic;
-    color: var(--rust);
-  }
-
+  .contact-headline em { font-style: italic; color: var(--rust); }
   .contact-sub {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--muted);
     line-height: 1.9;
     margin-bottom: 48px;
     font-weight: 300;
   }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
+  .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
   .contact-btn {
     display: inline-flex;
     align-items: center;
@@ -626,32 +475,12 @@
     transition: all 0.4s;
     border: 1px solid var(--ink);
   }
+  .contact-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+  .contact-btn.outline { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .contact-btn.outline:hover { background: var(--ink); color: var(--parchment); }
 
-  .contact-btn:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--ink);
-  }
-
-  .contact-btn.outline {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--ink);
-  }
-
-  .contact-btn.outline:hover {
-    background: var(--ink);
-    color: var(--parchment);
-  }
-
-  /* ── Kindle Book Cards ── */
-  .kindle-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-bottom: 2px;
-  }
-
+  /* Kindle Cards */
+  .kindle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
   .kindle-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(201,168,76,0.2);
@@ -659,16 +488,10 @@
     position: relative;
     transition: border-color 0.4s, background 0.4s;
   }
-
-  .kindle-card:hover {
-    border-color: var(--gold);
-    background: rgba(201,168,76,0.06);
-  }
-
+  .kindle-card:hover { border-color: var(--gold); background: rgba(201,168,76,0.06); }
   .kindle-badge {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 20px; right: 20px;
     background: var(--gold);
     color: var(--ink);
     font-family: 'Noto Sans JP', sans-serif;
@@ -677,16 +500,8 @@
     padding: 4px 10px;
     font-weight: 400;
   }
-
-  .kindle-header {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    margin-bottom: 20px;
-  }
-
+  .kindle-header { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; }
   .kindle-icon { font-size: 2rem; flex-shrink: 0; margin-top: 2px; }
-
   .kindle-label {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.65rem;
@@ -695,30 +510,21 @@
     opacity: 0.8;
     margin-bottom: 6px;
   }
-
   .kindle-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
     color: var(--parchment);
-    line-height: 1.2;
+    line-height: 1.3;
   }
-
   .kindle-desc {
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     line-height: 1.9;
     color: rgba(245,240,232,0.65);
     font-weight: 300;
     margin-bottom: 20px;
   }
-
-  .kindle-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 24px;
-  }
-
+  .kindle-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
   .kindle-tag {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.62rem;
@@ -727,7 +533,6 @@
     border: 1px solid rgba(201,168,76,0.3);
     padding: 4px 10px;
   }
-
   .kindle-btn {
     display: inline-block;
     font-family: 'Noto Sans JP', sans-serif;
@@ -739,17 +544,9 @@
     padding-bottom: 2px;
     transition: color 0.3s, border-color 0.3s;
   }
+  .kindle-btn:hover { color: var(--parchment); border-color: var(--parchment); }
 
-  .kindle-btn:hover {
-    color: var(--parchment);
-    border-color: var(--parchment);
-  }
-
-  @media (max-width: 900px) {
-    .kindle-grid { grid-template-columns: 1fr; }
-  }
-
-  /* ── Communication Policy Banner ── */
+  /* Communication Policy */
   .comm-policy {
     display: flex;
     gap: 24px;
@@ -762,13 +559,7 @@
     position: relative;
     z-index: 1;
   }
-
-  .comm-policy-icon {
-    font-size: 1.8rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
+  .comm-policy-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
   .comm-policy-body h4 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
@@ -778,17 +569,15 @@
     margin-bottom: 8px;
     text-transform: uppercase;
   }
-
   .comm-policy-body p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1.8;
     color: rgba(245,240,232,0.75);
     font-weight: 300;
   }
-
   .comm-policy-body strong { color: var(--parchment); font-weight: 400; }
 
-  /* ── Contact Policy Tags ── */
+  /* Contact Policy Tags */
   .contact-policy {
     display: flex;
     flex-wrap: wrap;
@@ -800,17 +589,9 @@
     border: 1px solid var(--border);
     background: var(--parchment);
   }
-
-  .cp-tag {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    color: var(--ink);
-  }
-
+  .cp-tag { font-family: 'Noto Sans JP', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--ink); }
   .cp-sep { color: var(--gold); opacity: 0.5; }
 
-  /* ── Divider ── */
   .ornament {
     text-align: center;
     font-family: 'Cormorant Garamond', serif;
@@ -821,7 +602,6 @@
     margin: 16px 0;
   }
 
-  /* ── Footer ── */
   footer {
     padding: 32px 80px;
     border-top: 1px solid var(--border);
@@ -829,7 +609,6 @@
     justify-content: space-between;
     align-items: center;
   }
-
   footer p {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.65rem;
@@ -837,27 +616,18 @@
     letter-spacing: 0.1em;
   }
 
-  /* ── Scroll reveal ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── Responsive ── */
   @media (max-width: 900px) {
     nav, section, footer { padding-left: 32px; padding-right: 32px; }
     .side-line, .side-line-right { display: none; }
     .about-grid, .skills-layout { grid-template-columns: 1fr; gap: 40px; }
     .services-grid { grid-template-columns: 1fr; }
-    .work-item { grid-template-columns: 60px 1fr; }
+    .work-item { grid-template-columns: 80px 1fr; }
     .work-type { display: none; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
+    .kindle-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -885,10 +655,10 @@
     <div class="hero-eyebrow">Japan-based · Japanese Native · Writer · Translator · Text-Based Communication</div>
     <h1 class="hero-name">Words that <em>connect</em><br>cultures &amp; hearts</h1>
     <p class="hero-tagline">
-      日本語ネイティブによる高精度ライティング・翻訳・コンテンツ制作。<br>
-      15年以上の言語の専門知識で、あなたのメッセージを最高の言葉に変えます。
+      Precision writing, translation &amp; content creation by a Japanese native.<br>
+      Over 15 years of language expertise — turning your message into its finest form.
     </p>
-    <a href="#contact" class="hero-cta"><span>お仕事のご依頼はこちら</span></a>
+    <a href="#contact" class="hero-cta"><span>Hire me on Upwork</span></a>
   </div>
   <div class="hero-scroll">Scroll</div>
 </section>
@@ -909,28 +679,28 @@
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>日本在住の日本語ネイティブとして、<strong>日本市場・日本文化への深い理解</strong>を強みにしています。日本語特有のニュアンスや敬語表現、商慣習に精通しているため、海外クライアントの日本向けコンテンツ制作に特に強みを発揮します。</p>
-      <p>情報誌の<strong>校正・校閲業務を15年以上</strong>にわたり担当し、言語の正確さと表現の豊かさを徹底的に磨いてきました。</p>
-      <p>Kindle小説を<strong>2冊出版</strong>（『父のアルゴリズム』『五十代崖っぷち主任』）。AIと人間の感情・家族・人生再起動をテーマに、フィクションと実用を融合させた作品を手がけています。</p>
-      <p>MLMでの<strong>15年以上のディストリビューターサポート経験</strong>を通じ、プレゼンテーション資料作成や分かりやすいビジネスコミュニケーションにも精通しています。</p>
-      <p>マネタイズ済みの<strong>アフィリエイトブログ運営</strong>や人事総務の経験により、SEOに強いWebコンテンツからビジネス文書まで幅広く対応可能です。</p>
+      <p>As a Japan-based Japanese native, my greatest strength lies in a <strong>deep understanding of Japanese culture, market nuances, honorific expressions, and business customs</strong> — a critical advantage for overseas clients targeting Japanese-speaking audiences.</p>
+      <p>I have spent <strong>15+ years as a proofreader and editor</strong> for print magazines, honing both linguistic precision and richness of expression.</p>
+      <p>I am a <strong>published Kindle author</strong> with two novels (<em>Father's Algorithm</em> and <em>The Cliff-Edge Section Chief in His 50s</em>), exploring themes of AI, human emotion, family, and life reinvention.</p>
+      <p>Through <strong>15+ years of distributor support</strong> in an MLM company, I developed strong skills in presentation creation and clear, persuasive business communication.</p>
+      <p>My <strong>monetized affiliate blog</strong> achieves 116,000+ monthly impressions, 8,000+ clicks, and an average search ranking of 4.3 — backed by hands-on SEO and content strategy experience.</p>
     </div>
     <div class="stats-grid reveal">
       <div class="stat-card">
         <div class="stat-number">15+</div>
-        <div class="stat-label">年の校正・校閲経験</div>
+        <div class="stat-label">Years of Proofreading</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">2冊</div>
-        <div class="stat-label">Kindle小説出版</div>
+        <div class="stat-number">2</div>
+        <div class="stat-label">Kindle Novels Published</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">15+</div>
-        <div class="stat-label">年のビジネスサポート</div>
+        <div class="stat-number">116K</div>
+        <div class="stat-label">Monthly Blog Impressions</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">Native</div>
-        <div class="stat-label">日本語ネイティブ</div>
+        <div class="stat-label">Japanese Proficiency</div>
       </div>
     </div>
   </div>
@@ -945,8 +715,8 @@
   <div class="services-grid">
     <div class="service-card reveal">
       <span class="service-icon">✍️</span>
-      <h3 class="service-title">日本語ライティング・コンテンツ制作</h3>
-      <p class="service-desc">ブログ記事、Web コンテンツ、ビジネス文書、商品説明など。SEO・LLMO・AIO を意識した構成設計から、E-E-A-T の観点を踏まえた信頼性の高いコンテンツ制作まで幅広く対応します。</p>
+      <h3 class="service-title">Japanese Content Writing</h3>
+      <p class="service-desc">Blog posts, web content, product descriptions, and business documents. From SEO/LLMO/AIO-optimized content structure to E-E-A-T-compliant, high-credibility writing — I cover the full spectrum.</p>
       <div class="service-tags">
         <span class="service-tag">SEO</span>
         <span class="service-tag">LLMO</span>
@@ -957,18 +727,19 @@
     </div>
     <div class="service-card reveal">
       <span class="service-icon">🔍</span>
-      <h3 class="service-title">校正・校閲・プルーフリーディング</h3>
-      <p class="service-desc">情報誌15年超の実務経験に基づく、高精度な日本語校正・校閲サービス。誤字脱字の修正から文体統一、事実確認まで丁寧に対応します。</p>
+      <h3 class="service-title">Proofreading · Editing · Fact-Checking</h3>
+      <p class="service-desc">High-accuracy Japanese proofreading and editing backed by 15+ years at a print magazine. I cover typo correction, style consistency, and fact-checking — with meticulous care at every level.</p>
       <div class="service-tags">
         <span class="service-tag">Proofreading</span>
         <span class="service-tag">Editing</span>
+        <span class="service-tag">Fact-Checking</span>
         <span class="service-tag">Japanese</span>
       </div>
     </div>
     <div class="service-card reveal">
       <span class="service-icon">🌐</span>
-      <h3 class="service-title">翻訳（英日・日英）</h3>
-      <p class="service-desc">ビジネス実務経験を活かした、自然で正確なビジネス翻訳。ウェブコンテンツの翻訳・ローカライズ対応。自然な日本語表現にこだわります。</p>
+      <h3 class="service-title">Translation (EN ↔ JP)</h3>
+      <p class="service-desc">Natural, precise business translation drawing on real-world professional experience. I also handle web content translation and Japanese localization, with an unwavering commitment to natural Japanese expression.</p>
       <div class="service-tags">
         <span class="service-tag">EN→JP</span>
         <span class="service-tag">JP→EN</span>
@@ -978,8 +749,8 @@
     </div>
     <div class="service-card reveal">
       <span class="service-icon">📖</span>
-      <h3 class="service-title">ストーリーテリング × Webマーケティング</h3>
-      <p class="service-desc">Kindle小説2冊の執筆経験で培ったストーリーテリング技術を、Webマーケティングに応用。読者を主人公にした共感型コンテンツ、ブランドの世界観を伝えるナラティブ記事、思わず読み進めてしまうLP文章など、「売り込まずに惹きつける」コンテンツ制作を得意とします。</p>
+      <h3 class="service-title">Storytelling × Web Marketing</h3>
+      <p class="service-desc">I apply storytelling techniques honed through writing 2 Kindle novels to web marketing. Specialties include reader-centric empathy-driven content, narrative brand articles, and LP copy that attracts without hard selling.</p>
       <div class="service-tags">
         <span class="service-tag">Storytelling</span>
         <span class="service-tag">Narrative Marketing</span>
@@ -990,8 +761,8 @@
     </div>
     <div class="service-card reveal">
       <span class="service-icon">📊</span>
-      <h3 class="service-title">プレゼンテーション資料作成</h3>
-      <p class="service-desc">製品プレゼンや営業資料の豊富な作成経験。伝わるデザインと論理構成で、あなたのビジネスを説得力ある形で表現します。</p>
+      <h3 class="service-title">Presentation & Business Document Creation</h3>
+      <p class="service-desc">15+ years of creating product presentations and sales materials. I craft compelling, logically structured documents that communicate your business with clarity and persuasion.</p>
       <div class="service-tags">
         <span class="service-tag">PowerPoint</span>
         <span class="service-tag">Business Docs</span>
@@ -1000,12 +771,13 @@
     </div>
     <div class="service-card reveal">
       <span class="service-icon">💻</span>
-      <h3 class="service-title">WordPress ブログ制作・運営</h3>
-      <p class="service-desc">マネタイズ済みアフィリエイトブログの運営経験あり。記事制作から WordPress サイト構築・更新管理まで対応。収益化を見据えた実践的なコンテンツ戦略が強みです。</p>
+      <h3 class="service-title">WordPress Blog Development & Management</h3>
+      <p class="service-desc">My own affiliate blog achieves 116,000+ monthly impressions, 8,000+ clicks, and an average search ranking of 4.3. I handle everything from SEO strategy and content creation to full monetization — all from real, proven experience.</p>
       <div class="service-tags">
         <span class="service-tag">WordPress</span>
         <span class="service-tag">Affiliate</span>
         <span class="service-tag">Monetization</span>
+        <span class="service-tag">SEO</span>
       </div>
     </div>
   </div>
@@ -1024,60 +796,60 @@
       <div class="kindle-header">
         <span class="kindle-icon">📖</span>
         <div>
-          <div class="kindle-label">Kindle 小説 · 著者：嘉藤大之</div>
-          <h3 class="kindle-title">父のアルゴリズム：AIで百人の仕事を奪った男が、息子に贈ったもの</h3>
+          <div class="kindle-label">Kindle Novel · Author: Hiroyuki Kato</div>
+          <h3 class="kindle-title">Father's Algorithm: What a Man Who Eliminated 100 Jobs with AI Gave His Son</h3>
         </div>
       </div>
-      <p class="kindle-desc">AIで百人以上の雇用削減に関わった42歳のAI推進担当・田中誠二が、皮肉にも自らのポジションをAIに奪われ失職。二年間不登校の息子・翔太、距離が生まれた妻・久美子。不器用な父が、人を傷つけた道具と同じAIを使って息子のための学習システムを設計し始める。マインクラフトと算数、霧の王様の物語と国語——家族の気持ちを取り戻すための、静かで不器用な再出発の物語。Kindle Unlimited対応。「父のアルゴリズム」シリーズ第1巻・続編刊行予定。</p>
+      <p class="kindle-desc">Seiji Tanaka, 42, spearheaded AI-driven layoffs of over 100 employees — only to have AI eliminate his own position. Returning home, he finds his son Shota hasn't attended school in two years, and his marriage growing distant. This clumsy father begins designing a learning system for his son using the same AI that caused so much harm. Through Minecraft and math, through foggy-king stories and reading — a quiet, imperfect story of a father's second start. Available on Kindle Unlimited. Series Vol. 1 — sequel forthcoming.</p>
       <div class="kindle-tags">
-        <span class="kindle-tag">AI × 家族</span>
-        <span class="kindle-tag">感動小説</span>
+        <span class="kindle-tag">AI × Family</span>
+        <span class="kindle-tag">Emotional Fiction</span>
         <span class="kindle-tag">Kindle Unlimited</span>
       </div>
-      <a href="https://www.amazon.co.jp/dp/B0GX31SS56" target="_blank" class="kindle-btn">Amazon で見る →</a>
+      <a href="https://www.amazon.co.jp/dp/B0GX31SS56" target="_blank" class="kindle-btn">View on Amazon →</a>
     </div>
     <div class="kindle-card">
-      <div class="kindle-badge" style="background:var(--rust)">第一弾</div>
+      <div class="kindle-badge" style="background:var(--rust)">Vol. 1</div>
       <div class="kindle-header">
         <span class="kindle-icon">📗</span>
         <div>
-          <div class="kindle-label">Kindle 小説 · 著者：嘉藤大之</div>
-          <h3 class="kindle-title">五十代崖っぷち主任がChatGPTで再起動する物語</h3>
+          <div class="kindle-label">Kindle Novel · Author: Hiroyuki Kato</div>
+          <h3 class="kindle-title">The Cliff-Edge Section Chief in His 50s Who Rebooted with ChatGPT</h3>
         </div>
       </div>
-      <p class="kindle-desc">59歳、うつ病による休職を経て総務部へ「左遷」された神谷優志。HSP・ADHD気質を抱え「僕なんかが…」が口癖の彼が、部下の雑談で知ったChatGPTに藁にもすがる思いで話しかける。AIとの対話から生まれた『ノビシロノート』を武器に、止まっていた時間が動き出す。冷え切った夫婦関係、職場のチームさえも変えていく——中高年のための、涙と共感と実践の人生再起動物語。Kindle Unlimited対応。</p>
+      <p class="kindle-desc">Yuji Kamiya, 59, was sidelined to General Affairs after a depression-related leave. Carrying HSP and ADHD tendencies and a habit of saying "someone like me can't…", he stumbles upon ChatGPT through a colleague's conversation. The AI's unexpected response sets something in motion. Armed with a "Growth Notebook" born from AI dialogue, his stalled life begins to move — transforming his chilled marriage and even his workplace team. A story of tears, empathy, and practical life reinvention for those in their middle years. Available on Kindle Unlimited.</p>
       <div class="kindle-tags">
-        <span class="kindle-tag">AI × 中高年</span>
-        <span class="kindle-tag">人生再起動</span>
-        <span class="kindle-tag">実用小説</span>
+        <span class="kindle-tag">AI × Midlife</span>
+        <span class="kindle-tag">Life Reinvention</span>
+        <span class="kindle-tag">Kindle Unlimited</span>
       </div>
-      <a href="https://www.amazon.co.jp/dp/B0FCVQJ678" target="_blank" class="kindle-btn">Amazon で見る →</a>
+      <a href="https://www.amazon.co.jp/dp/B0FCVQJ678" target="_blank" class="kindle-btn">View on Amazon →</a>
     </div>
   </div>
 
   <!-- Other Works -->
   <div class="works-list" style="margin-top:4px">
     <div class="work-item reveal">
-      <div class="work-year">15年+</div>
+      <div class="work-year">15+ Yrs</div>
       <div class="work-info">
-        <h3>情報誌 校正・校閲業務</h3>
-        <p>15年以上にわたる情報誌の校正・校閲担当。誤字脱字・表記統一・事実確認など高精度な日本語品質管理を継続。</p>
+        <h3>Print Magazine — Proofreading & Editing</h3>
+        <p>15+ years of continuous Japanese language quality management: typo correction, style consistency, and fact-checking for a print publication.</p>
       </div>
       <div class="work-type">Proofreading</div>
     </div>
     <div class="work-item reveal">
-      <div class="work-year">運営中</div>
+      <div class="work-year">Ongoing</div>
       <div class="work-info">
-        <h3>マネタイズ済みアフィリエイトブログ</h3>
-        <p>WordPress を使用したアフィリエイトブログを運営。SEO 対策・収益化戦略を実践し、継続的な収益を上げている。</p>
+        <h3>Monetized Affiliate Blog</h3>
+        <p>WordPress-based affiliate blog achieving 116,000+ monthly impressions, 8,000+ clicks, and an average search ranking of 4.3. Full-cycle: SEO strategy, content creation, and monetization.</p>
       </div>
       <div class="work-type">WordPress / SEO</div>
     </div>
     <div class="work-item reveal">
-      <div class="work-year">15年+</div>
+      <div class="work-year">15+ Yrs</div>
       <div class="work-info">
-        <h3>製品プレゼンテーション資料制作</h3>
-        <p>MLM 企業でのディストリビューターサポート業務を通じ、多数の製品プレゼン資料を企画・制作。分かりやすさと説得力を両立。</p>
+        <h3>Product Presentation & Sales Document Creation</h3>
+        <p>Planned and produced numerous product presentations through distributor support work. Balanced clarity with persuasion across all materials.</p>
       </div>
       <div class="work-type">Presentation</div>
     </div>
@@ -1092,57 +864,57 @@
   </div>
   <div class="skills-layout">
     <div class="skills-intro reveal">
-      <p>日本語の精度と表現力を核に、ライティング・翻訳・編集・コンテンツ制作まで幅広いスキルを備えています。長年の実務経験が、すべての仕事の品質を支えています。</p>
+      <p>Precision and expressiveness in Japanese are at the core of everything I do — from writing and translation to editing and content strategy. Every skill listed here is backed by years of real-world practice.</p>
     </div>
     <div class="skills-bars reveal">
       <div class="skill-row">
         <div class="skill-meta">
-          <span class="skill-name">日本語ライティング・校正</span>
-          <span class="skill-pct">98%</span>
+          <span class="skill-name">Japanese Writing & Proofreading</span>
+          <span class="skill-pct">15+ years of practice</span>
         </div>
-        <div class="skill-track"><div class="skill-fill" style="width:98%"></div></div>
+        <div class="skill-track"><div class="skill-fill" style="width:100%"></div></div>
       </div>
       <div class="skill-row">
         <div class="skill-meta">
-          <span class="skill-name">校閲・プルーフリーディング</span>
-          <span class="skill-pct">97%</span>
+          <span class="skill-name">Editing & Fact-Checking</span>
+          <span class="skill-pct">15+ yrs at print magazine</span>
         </div>
-        <div class="skill-track"><div class="skill-fill" style="width:97%"></div></div>
+        <div class="skill-track"><div class="skill-fill" style="width:100%"></div></div>
       </div>
       <div class="skill-row">
         <div class="skill-meta">
-          <span class="skill-name">英日・日英 翻訳</span>
-          <span class="skill-pct">85%</span>
+          <span class="skill-name">EN ↔ JP Translation</span>
+          <span class="skill-pct">Business experience</span>
         </div>
-        <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
+        <div class="skill-track"><div class="skill-fill" style="width:100%"></div></div>
       </div>
       <div class="skill-row">
         <div class="skill-meta">
-          <span class="skill-name">WordPress / ブログ運営</span>
-          <span class="skill-pct">80%</span>
+          <span class="skill-name">WordPress / Blog Management</span>
+          <span class="skill-pct">116K monthly impressions</span>
         </div>
-        <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+        <div class="skill-track"><div class="skill-fill" style="width:100%"></div></div>
       </div>
       <div class="skill-row">
         <div class="skill-meta">
-          <span class="skill-name">プレゼンテーション資料作成</span>
-          <span class="skill-pct">88%</span>
+          <span class="skill-name">Presentation Creation</span>
+          <span class="skill-pct">15+ years of production</span>
         </div>
-        <div class="skill-track"><div class="skill-fill" style="width:88%"></div></div>
+        <div class="skill-track"><div class="skill-fill" style="width:100%"></div></div>
       </div>
       <div class="skill-row">
         <div class="skill-meta">
-          <span class="skill-name">ビジネスコンテンツ制作</span>
-          <span class="skill-pct">90%</span>
+          <span class="skill-name">Business Content Writing</span>
+          <span class="skill-pct">SEO / LLMO / E-E-A-T</span>
         </div>
-        <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
+        <div class="skill-track"><div class="skill-fill" style="width:100%"></div></div>
       </div>
       <div class="skill-row">
         <div class="skill-meta">
-          <span class="skill-name">クリエイティブライティング（小説）</span>
-          <span class="skill-pct">92%</span>
+          <span class="skill-name">Storytelling</span>
+          <span class="skill-pct">2 Kindle novels published</span>
         </div>
-        <div class="skill-track"><div class="skill-fill" style="width:92%"></div></div>
+        <div class="skill-track"><div class="skill-fill" style="width:100%"></div></div>
       </div>
     </div>
   </div>
@@ -1154,8 +926,8 @@
     <div class="ornament reveal">❧ ✦ ❧</div>
     <h2 class="contact-headline reveal">Let's create something<br><em>extraordinary</em> together</h2>
     <p class="contact-sub reveal">
-      日本語ライティング・翻訳・校正・コンテンツ制作のご依頼、<br>
-      お気軽にご相談ください。スピーディーに対応いたします。
+      Looking for high-quality Japanese writing, translation, proofreading, or content creation?<br>
+      I'd love to hear about your project. Let's get started.
     </p>
     <div class="contact-policy reveal">
       <span class="cp-tag">💬 Text only</span>
@@ -1167,7 +939,7 @@
       <span class="cp-tag">🚫 No video/voice calls</span>
     </div>
     <div class="contact-links reveal">
-      <a href="https://www.upwork.com" target="_blank" class="contact-btn"><span>Upwork でご依頼</span></a>
+      <a href="https://www.upwork.com" target="_blank" class="contact-btn"><span>Hire me on Upwork</span></a>
       <span class="contact-btn outline" style="cursor:default;">📋 Contact via Upwork only</span>
     </div>
   </div>
@@ -1180,7 +952,6 @@
 </footer>
 
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
